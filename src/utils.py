@@ -67,7 +67,7 @@ def read_xarray(dir_name=""):
 
     pco2 = xr.open_dataset(f'{dir_name}/pCO2_2D_mon_CESM001_1x1_198201-201701.nc')
 
-    return chl,mld,sss,sst,u10,fg_co2,xco2,ice_frac,patm,pco2
+    return chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2
 
 def repeat_lat_and_lon(ds=None):
     lon = np.arange(0.5,360,1)
