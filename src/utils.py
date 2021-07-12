@@ -28,7 +28,12 @@ def df_to_xarray(df_in=None):
     # make dataframe
     skeleton = ds_skeleton.to_dataframe().reset_index()[['time','lat','lon']]
     # Merge predictions with df_all dataframe
-    df_out = skeleton.merge(df_in, how = 'left', on = ['time','lat','lon'])
+    try:
+        df_out = skeleton.merge(df_in, how = 'left', on = ['time','lat','lon'])
+    except:
+        con=[skeleton,df_in]
+        df_out=pd.concat(con)
+        
     # convert to xarray dataset
     # old way to `dimt, = ds_skeleton.time.shape` ect. to get dimensions
     # then reshape  `df_out.values.reshape(dim_lat, dim_lon, dim_time)`
