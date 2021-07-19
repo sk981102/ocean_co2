@@ -29,8 +29,10 @@ def df_to_xarray(df_in=None):
     skeleton = ds_skeleton.to_dataframe().reset_index()[['time','lat','lon']]
     # Merge predictions with df_all dataframe
     try:
+        print("works")
         df_out = skeleton.merge(df_in, how = 'left', on = ['time','lat','lon'])
     except:
+        print("maybe this")
         con=[skeleton,df_in]
         df_out=pd.concat(con)
         
