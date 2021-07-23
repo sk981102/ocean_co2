@@ -20,10 +20,11 @@ chardet==4.0.0
 click==8.0.1
 click-plugins==1.1.1
 cligj==0.7.2
+cmocean==2.0
 colorcet==2.0.6
 cookiecutter==1.7.3
 cycler==0.10.0
-decorator==5.0.9
+decorator==4.4.2
 docopt==0.6.2
 eccodes==1.2.0
 fasteners==0.16.3
@@ -40,6 +41,7 @@ h5py==3.1.0
 holoviews==1.14.4
 hvplot==0.7.2
 idna==2.10
+imageio==2.9.0
 ipykernel==5.5.5
 ipython==7.24.1
 ipython-genutils==0.2.0
@@ -58,6 +60,7 @@ MarkupSafe==2.0.1
 matplotlib==3.4.2
 matplotlib-inline==0.1.2
 netCDF4==1.5.6
+networkx==2.5.1
 numcodecs==0.7.3
 numpy==1.19.5
 oauthlib==3.1.1
@@ -86,12 +89,14 @@ python-dateutil==2.8.1
 python-slugify==5.0.2
 pytz==2021.1
 pyviz-comms==2.0.2
+PyWavelets==1.1.1
 PyYAML==5.4.1
 pyzmq==22.1.0
 rasterio==1.2.4
 requests==2.25.1
 requests-oauthlib==1.3.0
 rsa==4.7.2
+scikit-image==0.18.2
 scikit-learn==0.24.2
 scipy==1.6.3
 six==1.15.0
@@ -106,6 +111,7 @@ tensorflow-estimator==2.5.0
 termcolor==1.1.0
 text-unidecode==1.3
 threadpoolctl==2.1.0
+tifffile==2021.7.2
 tornado==6.1
 tqdm==4.61.1
 traitlets==5.0.5
@@ -116,4 +122,5 @@ WebOb==1.8.7
 Werkzeug==2.0.1
 wrapt==1.12.1
 xarray==0.18.2
+xgboost==1.4.2
 zarr==2.8.3
