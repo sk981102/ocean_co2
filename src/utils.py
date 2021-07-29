@@ -6,6 +6,47 @@ import matplotlib.pyplot as plt
 from skimage.filters import sobel
 
 
+### FOR VISION ###
+
+def plot_image(image):
+    '''
+    plots image of the map in black and white
+    '''
+    plt.imshow(image, cmap="gray", interpolation="nearest")
+    plt.axis("off")
+
+def convert_nan(arr):
+    '''
+    converts NaN values, which indicate coordinates into 0
+    '''
+    nans=np.isnan(arr)
+    arr[nans]=0
+    return arr
+
+def add_dimension(arr):
+    '''
+    adds additional dimension to feed into cnn
+    '''
+    images=np.expand_dims(arr, axis=3)
+    return images
+
+def scale_image(arr):
+    '''
+    standardizing image values
+    '''
+    min_val=arr.min()
+    arr=arr+abs(min_val)
+    max_val=arr.max()
+    arr=arr/max_val*255
+    return arr
+  
+def preprocess_image(data,train=False):
+    if train:
+        return add_dimension(convert_nan(data))
+    else:
+        return add_dimension(scale_image(convert_nan(data))/255.0)
+
+
 
 
 def df_to_xarray(df_in=None):
