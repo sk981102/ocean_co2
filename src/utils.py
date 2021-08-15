@@ -40,7 +40,7 @@ def scale_image(arr):
     arr=arr/max_val*255
     return arr
   
-def preprocess_image(data,train=False):
+def preprocess_image(data,xco2=False):
     if train:
         return add_dimension(convert_nan(data))
     else:
