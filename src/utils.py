@@ -5,8 +5,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.filters import sobel
 
+### Miscellaneous - might delete later ###
+def un_standardized_mse(val):
+  val=np.sqrt(val)*pco2.pCO2.data.max()
+  return val
+
 
 ### FOR VISION ###
+def process_xco2(xco2):
+    xco2_images=[]
+
+    for i in xco2:
+        tmp=(np.repeat(i,180*360)).reshape(180,-1)
+        xco2_images.append(tmp)
+    
+    return xco2_images
 
 def plot_image(image):
     '''
@@ -40,8 +53,10 @@ def scale_image(arr):
     arr=arr/max_val*255
     return arr
   
-def preprocess_image(data,xco2=False):
-    if train:
+def preprocess_image(data,xco2=False,pco2=False):
+    if xco2:
+        return add_dimension(process_xco2(data))
+    if pco2:
         return add_dimension(convert_nan(data))
     else:
         return add_dimension(scale_image(convert_nan(data))/255.0)
