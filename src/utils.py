@@ -10,6 +10,12 @@ def un_standardized_mse(val):
   val=np.sqrt(val)*pco2.pCO2.data.max()
   return val
 
+### FOR SEQUENTIAL + VISION
+
+def create_shifted_frames(data):
+    x = data[:, 0 : data.shape[1] - 1, :, :]
+    y = data[:, 1 : data.shape[1], :, :]
+    return x, y
 
 ### FOR VISION ###
 def process_xco2(xco2):
