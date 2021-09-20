@@ -70,7 +70,7 @@ def preprocess_image(data,xco2=False,pco2=False):
 
 def preprocess_image_reduced(data,xco2=False,pco2=False):
     if xco2:
-        return preprocess_xco2(data)
+        return process_xco2(data)
     if pco2:
         return convert_nan(data)
     else:
