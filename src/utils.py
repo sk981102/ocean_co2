@@ -68,6 +68,13 @@ def preprocess_image(data,xco2=False,pco2=False):
         return add_dimension(scale_image(convert_nan(data))/255.0)
 
 
+def preprocess_image_reduced(data,xco2=False,pco2=False):
+    if xco2:
+        return preprocess_xco2(data)
+    if pco2:
+        return convert_nan(data)
+    else:
+        return scale_image(convert_nan(data))/255.0
 
 
 def df_to_xarray(df_in=None):
