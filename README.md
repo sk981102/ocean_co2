@@ -1,7 +1,7 @@
 Ocean pCO2 Prediction with Deep Learning
 ==============================
 
-Author: Shaun (Siyeon) Kim
+Author: Shaun (Siyeon) Kim, [sk4973@columbia.edu](mailto:sk4973@columbia.edu)
 
 ### Global Ocean pCO2 modeling for Gentine Lab
 
@@ -20,18 +20,19 @@ tensorflow==2.4.0
 ````
 
 ### Data and Model Usage
-To download the data from figshare:
+To download the data from figshare & download python libraries:
 ```` 
-... # run the .sh script
+python3 setup.py
 ````
 
-To download the python dependencies:
+To download the python libraries:
 ```` 
 pip install -r requirements.txt
 ````
 
 Usage:
 ```python
+
 import sys
 import tensorflow as tf
 from tensorflow import keras
@@ -49,7 +50,10 @@ predicted_images=best_model.predict(data,verbose=1)
 ```
 
 ### Colab Notebook for Run-through
-- Link, link
+
+[Run the model on Google Colab (interactive notebook)](https://colab.research.google.com/drive/1GX6e0XXeGSb7F4sZDQwSW4cA7dwgMc7I)
+
+
 
 Project Organization
 ------------
@@ -84,10 +88,7 @@ Project Organization
     │   │   ├── predict_model.py
     │   │   └── train_model.py
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    └── 
 
 
 --------
