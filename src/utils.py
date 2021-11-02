@@ -5,6 +5,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.filters import sobel
 
+def inverse_scale_image(arr, df):
+    """
+    inverse_scale_image(arr, df):
+    - inverses the pco2 scaling
+    """
+    old_min = np.min(df)
+    old_max = np.max(df)
+    output = arr*(old_max-old_min)/255 + old_min
+    return output
+
+def get_point_prediction(pred,lon,lan):
+    pco2_value = pred[lan][lon]
+    return pco2_value
+
 
 def df_to_xarray(df_in=None):
     '''
