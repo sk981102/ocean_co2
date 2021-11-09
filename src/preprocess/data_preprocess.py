@@ -25,6 +25,7 @@ def preprocess_images(dir_name):
     return X, pco2_images
 
 
+
 def preprocess_image_reduced(data,xco2=False):
     if xco2:
         return xco2_preprocess(data)
