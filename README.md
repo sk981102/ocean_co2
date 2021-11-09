@@ -7,7 +7,7 @@ Author: Shaun (Siyeon) Kim, [sk4973@columbia.edu](mailto:sk4973@columbia.edu)
 
 This repository contains models that predict pCO2 level of the ocean by incorporating spatial and temporal information with the help of Deep Learning. It also contains traditional machine learning models such as neural network, random forest, and XGboost.  
 
-#### CNN Image Segmentation Output
+#### CNN Image Segmentation Output on Validation Set (different CESM dataset) 
 **Predicted vs. Expected**
 
 ![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_comparison.png)
