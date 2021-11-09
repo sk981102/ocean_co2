@@ -10,15 +10,15 @@ This repository contains models that predict pCO2 level of the ocean by incorpor
 #### CNN Image Segmentation Output
 **Predicted vs. Expected**
 
-![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/comparison.png)
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_comparison.png)
 
 **Residual**
 
-![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/residual.png)
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_residual.png)
 
 **RMSE over time**
 
-![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/overtime.png)
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_overtime.png)
 
 
 Getting Started
