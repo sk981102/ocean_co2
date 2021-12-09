@@ -19,8 +19,25 @@ def preprocess_images(dir_name):
     
     pco2_images = preprocess_image_reduced(pco2.pCO2.data)
     
-    X = np.stack((chl_images, mld_images, sss_images, sst_images, xco2_images), axis = 1)
-    X = X.reshape((421,180,360,5))
+    X = np.dstack((chl_images, mld_images, sss_images, sst_images, xco2_images), axis = 1)
+    X = X.reshape((421,180,360,5),order='F')
+
+    return X, pco2_images
+
+def preprocess_images_nfp(dir_name):
+    
+    chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2 = read_xarray(dir_name)
+    
+    chl_images = preprocess_image_reduced(chl.Chl.data)
+    mld_images = preprocess_image_reduced(mld.MLD.data)
+    sss_images = preprocess_image_reduced(sss.SSS.data)
+    sst_images = preprocess_image_reduced(sst.SST.data)
+    xco2_images = preprocess_image_reduced(xco2.XCO2.data,xco2=True)
+    
+    pco2_images = preprocess_image_reduced(pco2.pCO2.data)
+    
+    X = np.dstack((chl_images, mld_images, sss_images, sst_images, xco2_images,pco2_images), axis = 1)
+    X = X.reshape((421,180,360,6),order='F')
 
     return X, pco2_images
 

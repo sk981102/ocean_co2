@@ -57,29 +57,29 @@ def df_to_xarray(df_in=None):
     #ds['sst'].attrs['units'] = 'uatm'
     return ds
 
-def read_xarray(dir_name=""):
+def read_xarray(dir_name="",num="001"):
     '''
      read_xarray(dir)name) opens data and returns data in xarray format for each feature
     '''
-    chl = xr.open_dataset(f'{dir_name}/Chl_2D_mon_CESM001_1x1_198201-201701.nc')
+    chl = xr.open_dataset(f'{dir_name}/Chl_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    mld = xr.open_dataset(f'{dir_name}/MLD_2D_mon_CESM001_1x1_198201-201701.nc')
+    mld = xr.open_dataset(f'{dir_name}/MLD_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    sss = xr.open_dataset(f'{dir_name}/SSS_2D_mon_CESM001_1x1_198201-201701.nc')
+    sss = xr.open_dataset(f'{dir_name}/SSS_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    sst = xr.open_dataset(f'{dir_name}/SST_2D_mon_CESM001_1x1_198201-201701.nc')
+    sst = xr.open_dataset(f'{dir_name}/SST_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    u10 = xr.open_dataset(f'{dir_name}/U10_2D_mon_CESM001_1x1_198201-201701.nc')
+    u10 = xr.open_dataset(f'{dir_name}/U10_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    fg_co2= xr.open_dataset(f'{dir_name}/FG-CO2_2D_mon_CESM001_1x1_198201-201701.nc')
+    fg_co2= xr.open_dataset(f'{dir_name}/FG-CO2_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    xco2 = xr.open_dataset(f'{dir_name}/XCO2_1D_mon_CESM001_native_198201-201701.nc')
+    xco2 = xr.open_dataset(f'{dir_name}/XCO2_1D_mon_CESM{num}_native_198201-201701.nc')
 
-    icefrac = xr.open_dataset(f'{dir_name}/iceFrac_2D_mon_CESM001_1x1_198201-201701.nc')
+    icefrac = xr.open_dataset(f'{dir_name}/iceFrac_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    patm = xr.open_dataset(f'{dir_name}/pATM_2D_mon_CESM001_1x1_198201-201701.nc')
+    patm = xr.open_dataset(f'{dir_name}/pATM_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
-    pco2 = xr.open_dataset(f'{dir_name}/pCO2_2D_mon_CESM001_1x1_198201-201701.nc')
+    pco2 = xr.open_dataset(f'{dir_name}/pCO2_2D_mon_CESM{num}_1x1_198201-201701.nc')
 
     return chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2
 
