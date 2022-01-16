@@ -10,10 +10,28 @@ def inverse_scale_image(arr, df):
     inverse_scale_image(arr, df):
     - inverses the pco2 scaling
     """
-    old_min = np.min(df)
-    old_max = np.max(df)
-    output = arr*(old_max-old_min)/255 + old_min
+    
+    old_min = np.nanmin(df)
+    old_max = np.nanmax(df)
+
+    output = arr*(old_max-old_min)/255+old_min
     return output
+
+def inverse_scale_image_nfp(arr, df):
+    """
+    inverse_scale_image(arr, df):
+    - inverses the pco2 scaling
+    """
+    
+    old_min = np.nanmin(df)
+    old_max = np.nanmax(df)
+
+    y_pred = arr*(old_max-old_min)/255+old_min
+    
+    tmp=np.nan_to_num(pco2.pCO2.data[X_index][1:])
+    y_true=np.expand_dims(tmp,axis=4)
+    y_pred[y_true==0]=0
+    return y_true,y_pred
 
 def get_point_prediction(pred,lon,lan):
     pco2_value = pred[lan][lon]
