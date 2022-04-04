@@ -40,12 +40,12 @@ def preprocess_images_nfp(dir_name,num="001",socat=False):
     
     if socat:
 
-        chl_images = preprocess_image_reduced(chl.Chl_socat.data)
-        mld_images = preprocess_image_reduced(mld.MLD_socat.data)
-        sss_images = preprocess_image_reduced(sss.SSS_socat.data)
-        sst_images = preprocess_image_reduced(sst.SST_socat.data)
+        chl_images = preprocess_image_reduced(chl.Chl_socat.data,socat=True)
+        mld_images = preprocess_image_reduced(mld.MLD_socat.data,socat=True)
+        sss_images = preprocess_image_reduced(sss.SSS_socat.data,socat=True)
+        sst_images = preprocess_image_reduced(sst.SST_socat.data,socat=True)
         xco2_images = preprocess_image_reduced(xco2.XCO2.data,xco2=True)
-        pco2_images = preprocess_image_reduced(pco2.pCO2_socat.data)
+        pco2_images = preprocess_image_reduced(pco2.pCO2_socat.data,socat=True)
     else:
         chl_images = preprocess_image_reduced(chl.Chl.data)
         mld_images = preprocess_image_reduced(mld.MLD.data)
@@ -60,9 +60,11 @@ def preprocess_images_nfp(dir_name,num="001",socat=False):
     return X, pco2_images
 
 
-def preprocess_image_reduced(data,xco2=False):
+def preprocess_image_reduced(data,xco2=False,socat=False):
     if xco2:
         return xco2_preprocess(data)
+    if socat :
+        return scale_image(convert_nan(data,socat=True))
     
     return scale_image(convert_nan(data))
   
@@ -99,15 +101,21 @@ def xco2_preprocess(data):
     return output
 
 
-def convert_nan(arr):
+def convert_nan(arr,socat=False):
     """
     convert_nan(arr)
     - converts nan values to the lowest value (continents)
     """
-    nans=np.isnan(arr)
-    min_val=arr[~nans].min()
-    arr[nans]=min_val-1
+    if socat:
+        nans=np.isnan(arr)
+        min_val=arr[~nans].min()
+        arr[nans]=min_val
+    else:
+        nans=np.isnan(arr)
+        min_val=arr[~nans].min()
+        arr[nans]=min_val-1
     return arr
+
 
 def add_dimension(arr):
     """
@@ -123,20 +131,15 @@ def scale_image(arr):
     - scales numerical values from scale 0-255 for like an image
     - have tried, regular normal/ min-max scaler -> does not work well
     """
-    ## Normal
-    #arr=(arr-np.mean(arr))/np.std(arr)
-    
-    ## Min-Max
-    # min_val=arr.min()
-    # max_val=arr.max()
-    # arr=arr/(min_val-max_val)
-
     ## Image Scale
     min_pixel = arr.min() 
+    #print("min:",min_pixel)
     max_pixel = arr.max()
+    #print("max:",max_pixel)
+
     new_min = 0
     new_max = 255
-    arr = (arr-min_pixel)*(255)/(max_pixel-min_pixel)+new_min 
+    arr = (arr-min_pixel)*(255)/(max_pixel-min_pixel)
     return arr
   
 
