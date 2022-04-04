@@ -5,21 +5,47 @@ Author: Shaun (Siyeon) Kim, [sk4973@columbia.edu](mailto:sk4973@columbia.edu)
 
 ### Global Ocean pCO2 modeling for Gentine Lab
 
-This repository contains models that predict pCO2 level of the ocean by incorporating spatial and temporal information with the help of Deep Learning. It also contains traditional machine learning models such as neural network, random forest, and XGboost.  
+This repository contains models that predict pCO2 level of the ocean by incorporating spatial and temporal information with the help of Deep Learning (Image Segmentations + ConvLSTM algorithms). 
 
-#### CNN Image Segmentation Output on Validation Set (different CESM dataset) 
-**Predicted vs. Expected**
+It also contains traditional machine learning models such as neural network, random forest, and XGboost.  
 
-![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_comparison.png)
+### CNN-UNET Pretrained Model
 
-**Residual**
+**PERFORMANCE** 
 
-![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_residual.png)
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/cnn-unet.gif)
 
-**RMSE over time**
+**RMSE over TIME** 
 
-![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/val_overtime.png)
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/unet-overtime.png)
 
+
+### ConvLSTM Pretrained Model 
+
+**PERFORMANCE** 
+
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/cnn-lstm.gif)
+
+**RMSE over TIME** 
+
+![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/nfp-overtime.png)
+
+
+#### Performance compared to Traditional ML
+
+| Model  | RMSE (uatm) |
+| ------------- | ------------- |
+| Random Forest  | 40.387 |
+| FFN  | 39.494 |
+| XgBoost  | 37.709  |
+| **CNN-UNET**  | **8.499** |
+| **ConvLSTM** | **3.737**  |
+
+
+### Potenial Use Cases of Pretrained Models
+
+1. Used to predict dpCO2 in addition to pCO2 via transfer learning
+2. Used to predict pCO2 in real world SOCAT sampling via transfer learning
 
 Getting Started
 ------------
@@ -32,39 +58,22 @@ cuda11.0/toolkit cuda11.0/blas cudnn8.0-cuda11.
 tensorflow==2.4.0
 ````
 
-### Data and Model Usage
-To download the data from figshare & download python libraries:
+### Downloading Data and Libraries
+To download the data from [figshare](https://figshare.com/articles/dataset/CESM_ocean_pCO2_testbed/8798999?file=16129505):
 ```` 
-python3 setup.py
+mkdir data #create data directory
+./download_data.sh [file_id]
 ````
+**file_id : 8 code digit at the end of the data url from figshare**
+
 
 To download the python libraries:
 ```` 
 pip install -r requirements.txt
 ````
 
-Usage:
-```python
-
-import sys
-import tensorflow as tf
-from tensorflow import keras
-
-sys.path.insert(0, '../src')
-from utils import preprocess
-
-model_dir="{{model_dir}}"
-data = preprocess({{data}}) # write the wrapper function for preprocessing data
-
-best_model = tf.keras.models.load_model(model_dir, custom_objects={'custom_rmse':custom_rmse})
-
-predicted_images=best_model.predict(data,verbose=1)
-
-```
-
 ### Colab Notebook for Run-through
 
-[Run the model on Google Colab (interactive notebook)](https://colab.research.google.com/drive/1GX6e0XXeGSb7F4sZDQwSW4cA7dwgMc7I)
 
 
 
