@@ -3,15 +3,15 @@ Ocean pCO2 Prediction with Deep Learning
 
 Author: Shaun (Siyeon) Kim, [sk4973@columbia.edu](mailto:sk4973@columbia.edu)
 
-### Global Ocean pCO2 modeling for Gentine Lab
+## Global Ocean pCO2 modeling for Gentine Lab
 
 This repository contains models that predict pCO2 level of the ocean by incorporating spatial and temporal information with the help of Deep Learning (Image Segmentations + ConvLSTM algorithms). 
 
 It also contains traditional machine learning models such as neural network, random forest, and XGboost.  
 
-### CNN-UNET Pretrained Model
+## CNN-UNET Pretrained Model
 
-**PERFORMANCE** 
+### PERFORMANCE
 
 ![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/cnn-unet.gif)
 
@@ -20,9 +20,9 @@ It also contains traditional machine learning models such as neural network, ran
 ![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/unet-overtime.png)
 
 
-### ConvLSTM Pretrained Model 
+## ConvLSTM Pretrained Model 
 
-**PERFORMANCE** 
+### PERFORMANCE
 
 ![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/cnn-lstm.gif)
 
@@ -31,7 +31,7 @@ It also contains traditional machine learning models such as neural network, ran
 ![Alt text](https://github.com/sk981102/ocean_co2/blob/main/assets/nfp-overtime.png)
 
 
-#### Performance compared to Traditional ML
+## Performance compared to Traditional ML
 
 | Model  | RMSE (uatm) |
 | ------------- | ------------- |
@@ -42,7 +42,7 @@ It also contains traditional machine learning models such as neural network, ran
 | **ConvLSTM** | **3.737**  |
 
 
-### Potenial Use Cases of Pretrained Models
+## Potenial Use Cases of Pretrained Models
 
 1. Used to predict dpCO2 in addition to pCO2 via transfer learning
 2. Used to predict pCO2 in real world SOCAT sampling via transfer learning
@@ -64,7 +64,7 @@ To download the data from [figshare](https://figshare.com/articles/dataset/CESM_
 mkdir data #create data directory
 ./download_data.sh [file_id]
 ````
-**file_id : 8 code digit at the end of the data url from figshare**
+    - file_id : 8 code digit at the end of the data url from figshare
 
 
 To download the python libraries:
@@ -72,35 +72,26 @@ To download the python libraries:
 pip install -r requirements.txt
 ````
 
-### Colab Notebook for Run-through
-
-
-
 
 Project Organization
 ------------
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Makefile           <- Makefile with commands like `make data` or `make train`(coming soon!)
+    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+    │                         generated with `pip freeze > requirements.txt
+    │
+    ├── download_data.sh   <- .sh to download figshare ocean_pco2 data
     ├── README.md          <- The top-level README for developers using this project.
     │    │
     ├── models             <- Trained and serialized models
     │
     ├── notebooks          <- Jupyter notebooks. Consists of EDA and Base Model implementations.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── assets             <- Visualizations (gif, png, etc. )created for the project
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   ├── utils.py       <- various util functions for data preprocessing and plotting
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
@@ -109,10 +100,8 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
-    │   │
+    │   └── 
     └── 
-
-
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>.
