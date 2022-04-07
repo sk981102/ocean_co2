@@ -6,7 +6,80 @@ import numpy as np
 sys.path.insert(0, '../src')
 
 from utils import df_to_xarray,read_xarray
-### Image Data Preprocess for CNN ###
+
+def inverse_scale_frame(arr,df, X_index=[], socat=False):
+    """
+    inverse_scale_frame(arr, df):
+    - inverses the pco2 scaling
+    """
+    if len(X_index)==0: 
+        X_index=np.lib.stride_tricks.sliding_window_view(range(421),3) 
+    
+    if socat:
+        return inverse_scale_frame_socat(arr,df, X_index)
+
+
+    df_tmp = df[df!=0.0]
+    
+    old_min = np.nanmin(df_tmp)
+    old_max = np.nanmax(df_tmp)
+    y_pred = arr*(old_max-old_min)/255+old_min
+    
+    tmp=np.nan_to_num(df[X_index][1:])
+    y_true=np.expand_dims(tmp,axis=4)
+    y_pred[y_true==0]=0
+    return y_true,y_pred
+
+def inverse_scale_frame_socat(arr,df, X_index=[]):
+    """
+    inverse_scale_frame(arr, df):
+    - inverses the pco2 scaling
+    """
+    old_min = 0
+
+    df_tmp = df[df!=0.0]
+    old_max = np.nanmax(df_tmp)
+    y_pred = arr*(old_max-old_min)/255+old_min
+    
+    tmp=np.nan_to_num(df[X_index][1:])
+    y_true=np.expand_dims(tmp,axis=4)
+    y_pred[y_true==0]=0
+    return y_true,y_pred
+
+
+def inverse_scale_image(arr, df, socat=False):
+    """
+    inverse_scale_image(arr, df):
+    - inverses the pco2 scaling
+    """
+    if socat:
+        return inverse_scale_image_socat(arr, df)
+    
+    old_min = np.nanmin(df)
+    old_max = np.nanmax(df)
+
+    y_pred = arr*(old_max-old_min)/255+old_min
+    
+    y_true=np.nan_to_num(df)
+    y_true = np.expand_dims(y_true, axis=3)
+
+    y_pred[y_true==0]=0
+    return y_true,y_pred
+
+
+def inverse_scale_image_socat(arr, df):
+    """
+    inverse_scale_image_socat(arr, df):
+    - inverses the pco2 scaling for socat
+    """    
+    old_min = 0
+    old_max = np.nanmax(df)
+    y_pred = arr*(old_max-old_min)/255
+    
+    tmp=np.nan_to_num(df)
+    y_true = np.expand_dims(tmp, axis=3)
+    y_pred[y_true==0] = 0
+    return y_true,y_pred
 
 
 def preprocess_images(dir_name, num="001",socat=False):

@@ -4,6 +4,37 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.filters import sobel
+import tensorflow.keras.backend as kb
+import tensorflow as tf
+from tensorflow.keras import backend as K
+
+
+def custom_rmse(y_true, y_pred):
+    """
+    custom_rmse(y_true, y_pred)
+    calculates root square mean value with focusing only on the ocean
+    """
+    y_pred = y_pred[(y_true != 0) & (y_true != 0.0)]
+    y_true = y_true[(y_true != 0) & (y_true != 0.0)]
+    
+    y_pred = tf.convert_to_tensor(y_pred)
+    y_true = tf.cast(y_true, y_pred.dtype)
+
+    return K.sqrt(K.mean(tf.math.squared_difference(y_pred, y_true),axis= -1))
+
+
+def eliminate_zero_pco2(pco2,socat=True):
+    if socat:
+        tmp=np.array(pco2.pCO2_socat.data)
+    else:
+        tmp=np.array(pco2.pCO2.data)
+        
+    ind=[]
+    
+    for i in range(421):
+        ind.append(np.nanmax(tmp[i]) != 0)
+    
+    return ind,tmp[ind]
 
 def inverse_scale_image(arr, df):
     """
@@ -171,6 +202,8 @@ def compute_n_vector(obj, dim_lon='lon', dim_lat='lat'):
                             np.sin(obj['lon_rad'])*np.cos(obj['lat_rad']), \
                             -np.cos(obj['lon_rad'])*np.cos(obj['lat_rad'])
     return obj[['A','B','C']]
+
+
 
 def network_mask():
     '''network_mask
