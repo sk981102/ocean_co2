@@ -61,6 +61,7 @@ def inverse_scale_image(arr, df, socat=False):
     y_pred = arr*(old_max-old_min)/255+old_min
     
     y_true=np.nan_to_num(df)
+    y_pred[y_true==0]=0
     y_true = np.expand_dims(y_true, axis=3)
 
     y_pred[y_true==0]=0
@@ -82,8 +83,8 @@ def inverse_scale_image_socat(arr, df):
     return y_true,y_pred
 
 
-def preprocess_images(dir_name, num="001",socat=False):
-    chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2 = read_xarray(dir_name,num)
+def preprocess_images(dir_name, num="001",socat=False,mpi=False,can=False):
+    chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2 = read_xarray(dir_name,num,mpi,can)
     
     if socat:
 
