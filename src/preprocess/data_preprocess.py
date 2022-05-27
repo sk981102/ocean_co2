@@ -40,7 +40,7 @@ def inverse_scale_frame_socat(arr,df, X_index=[]):
     df_tmp = df[df!=0.0]
     old_max = np.nanmax(df_tmp)
     y_pred = arr*(old_max-old_min)/255+old_min
-    
+    RE
     tmp=np.nan_to_num(df[X_index][1:])
     y_true=np.expand_dims(tmp,axis=4)
     y_pred[y_true==0]=0
@@ -62,16 +62,16 @@ def inverse_scale_image(arr, df, socat=False):
     
     y_true=np.nan_to_num(df)
     y_pred[y_true==0]=0
-    y_true = np.expand_dims(y_true, axis=3)
+    #y_true = np.expand_dims(y_true, axis=3)
 
-    y_pred[y_true==0]=0
     return y_true,y_pred
+
 
 
 def inverse_scale_image_socat(arr, df):
     """
     inverse_scale_image_socat(arr, df):
-    - inverses the pco2 scaling for socat
+    - inverses the pcPo2 scaling for socat
     """    
     old_min = 0
     old_max = np.nanmax(df)
@@ -84,7 +84,7 @@ def inverse_scale_image_socat(arr, df):
 
 
 def preprocess_images(dir_name, num="001",socat=False,mpi=False,can=False):
-    chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2 = read_xarray(dir_name,num,mpi,can)
+    chl,mld,sss,sst,u10,xco2,icefrac,patm,pco2 = read_xarray(dir_name,num,mpi,can)
     
     if socat:
 
@@ -108,9 +108,9 @@ def preprocess_images(dir_name, num="001",socat=False,mpi=False,can=False):
 
     return X, pco2_images
 
-def preprocess_images_nfp(dir_name,num="001",socat=False):
+def preprocess_images_nfp(dir_name,num="001",socat=False,mpi=False,can=False):
     
-    chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2 = read_xarray(dir_name,num)
+    chl,mld,sss,sst,u10,xco2,icefrac,patm,pco2 = read_xarray(dir_name,num,mpi,can)
     
     if socat:
 

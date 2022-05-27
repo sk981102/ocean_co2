@@ -110,6 +110,7 @@ def read_xarray(dir_name="",num="001",mpi=False,can=False):
     '''
      read_xarray(dir)name) opens data and returns data in xarray format for each feature
     '''
+    date="198201-201701"
     file_type = "CESM"
     if mpi:
         file_type ="MPI006"
@@ -117,29 +118,30 @@ def read_xarray(dir_name="",num="001",mpi=False,can=False):
     elif can:
         file_type = "CanESM2r1r10"
         num=""
+        date="198201-201712"
         
     
-    chl = xr.open_dataset(f'{dir_name}/Chl_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    chl = xr.open_dataset(f'{dir_name}/Chl_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    mld = xr.open_dataset(f'{dir_name}/MLD_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    mld = xr.open_dataset(f'{dir_name}/MLD_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    sss = xr.open_dataset(f'{dir_name}/SSS_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    sss = xr.open_dataset(f'{dir_name}/SSS_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    sst = xr.open_dataset(f'{dir_name}/SST_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    sst = xr.open_dataset(f'{dir_name}/SST_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    u10 = xr.open_dataset(f'{dir_name}/U10_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    u10 = xr.open_dataset(f'{dir_name}/U10_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    fg_co2= xr.open_dataset(f'{dir_name}/FG-CO2_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    xco2 = xr.open_dataset(f'{dir_name}/XCO2_1D_mon_CESM001_native_198201-201701.nc')
 
-    xco2 = xr.open_dataset(f'{dir_name}/XCO2_1D_mon_{file_type}{num}_native_198201-201701.nc')
+    icefrac = xr.open_dataset(f'{dir_name}/iceFrac_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    icefrac = xr.open_dataset(f'{dir_name}/iceFrac_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    patm = xr.open_dataset(f'{dir_name}/pATM_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    patm = xr.open_dataset(f'{dir_name}/pATM_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    pco2 = xr.open_dataset(f'{dir_name}/pCO2_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    pco2 = xr.open_dataset(f'{dir_name}/pCO2_2D_mon_{file_type}{num}_1x1_198201-201701.nc')
+    return chl,mld,sss,sst,u10,xco2,icefrac,patm,pco2
 
-    return chl,mld,sss,sst,u10,fg_co2,xco2,icefrac,patm,pco2
+
 
 def repeat_lat_and_lon(ds=None):
     lon = np.arange(0.5,360,1)

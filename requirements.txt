@@ -21,6 +21,7 @@ cligj==0.7.2
 cloudpickle==1.6.0
 cycler==0.10.0
 dask==2021.9.0
+dataclasses==0.6
 debugpy==1.4.3
 decorator==5.0.9
 distributed==2021.9.0
@@ -31,6 +32,7 @@ fasteners==0.16.3
 findlibs==0.0.2
 flatbuffers==1.12
 fsspec==2021.8.1
+future==0.18.2
 gast==0.3.3
 google-auth==1.35.0
 google-auth-oauthlib==0.4.6
@@ -66,7 +68,7 @@ networkx==2.6.2
 numba==0.54.0
 numbagg==0.2.1
 numcodecs==0.9.1
-numpy==1.19.5
+numpy==1.20.0
 oauthlib==3.1.1
 opt-einsum==3.3.0
 packaging==21.0
@@ -116,6 +118,9 @@ termcolor==1.1.0
 threadpoolctl==2.2.0
 tifffile==2021.8.30
 toolz==0.11.1
+torch==1.7.0+cu92
+torchaudio==0.7.0
+torchvision==0.8.0
 tornado==6.1
 traitlets==5.1.0
 typing-extensions==3.7.4.3
