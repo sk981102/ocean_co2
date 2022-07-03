@@ -3,7 +3,6 @@ import xarray as xr
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from skimage.filters import sobel
 import tensorflow.keras.backend as kb
 import tensorflow as tf
 from tensorflow.keras import backend as K
@@ -131,7 +130,7 @@ def read_xarray(dir_name="",num="001",mpi=False,can=False):
 
     u10 = xr.open_dataset(f'{dir_name}/U10_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    xco2 = xr.open_dataset(f'{dir_name}/XCO2_1D_mon_CESM001_native_198201-201701.nc')
+    xco2 = xr.open_dataset(f'../../data/data1/XCO2_1D_mon_CESM001_native_198201-201701.nc')
 
     icefrac = xr.open_dataset(f'{dir_name}/iceFrac_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
@@ -216,56 +215,56 @@ def compute_n_vector(obj, dim_lon='lon', dim_lat='lat'):
 
 
 
-def network_mask():
-    '''network_mask
-    This masks out regions in the 
-    NCEP land-sea mask (https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.surface.html)
-    to define the open ocean. Regions removed include:
-    - Coast : defined by sobel filter
-    - Batymetry less than 100m
-    - Arctic ocean : defined as North of 79N
-    - Hudson Bay
-    - caspian sea, black sea, mediterranean sea, baltic sea, Java sea, Red sea
-    '''
-    ### Load obs directory
-    dir_obs = '/local/data/artemis/observations'
+# def network_mask():
+#     '''network_mask
+#     This masks out regions in the 
+#     NCEP land-sea mask (https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.surface.html)
+#     to define the open ocean. Regions removed include:
+#     - Coast : defined by sobel filter
+#     - Batymetry less than 100m
+#     - Arctic ocean : defined as North of 79N
+#     - Hudson Bay
+#     - caspian sea, black sea, mediterranean sea, baltic sea, Java sea, Red sea
+#     '''
+#     ### Load obs directory
+#     dir_obs = '/local/data/artemis/observations'
     
-    ### topography
-    ds_topo = xr.open_dataset(f'{dir_obs}/GEBCO_2014/processed/GEBCO_2014_1x1_global.nc')
-    ds_topo = ds_topo.roll(lon=180, roll_coords='lon')
-    ds_topo['lon'] = np.arange(0.5, 360, 1)
+#     ### topography
+#     ds_topo = xr.open_dataset(f'{dir_obs}/GEBCO_2014/processed/GEBCO_2014_1x1_global.nc')
+#     ds_topo = ds_topo.roll(lon=180, roll_coords='lon')
+#     ds_topo['lon'] = np.arange(0.5, 360, 1)
 
-    ### Loads grids
-    # land-sea mask
-    # land=0, sea=1
-    ds_lsmask = xr.open_dataset(f'{dir_obs}/masks/originals/lsmask.nc').sortby('lat').squeeze().drop('time')
-    data = ds_lsmask['mask'].where(ds_lsmask['mask']==1)
-    ### Define Latitude and Longitude
-    lon = ds_lsmask['lon']
-    lat = ds_lsmask['lat']
+#     ### Loads grids
+#     # land-sea mask
+#     # land=0, sea=1
+#     ds_lsmask = xr.open_dataset(f'{dir_obs}/masks/originals/lsmask.nc').sortby('lat').squeeze().drop('time')
+#     data = ds_lsmask['mask'].where(ds_lsmask['mask']==1)
+#     ### Define Latitude and Longitude
+#     lon = ds_lsmask['lon']
+#     lat = ds_lsmask['lat']
     
-    ### Remove coastal points, defined by sobel edge detection
-    coast = (sobel(ds_lsmask['mask'])>0)
-    data = data.where(coast==0)
+#     ### Remove coastal points, defined by sobel edge detection
+#     coast = (sobel(ds_lsmask['mask'])>0)
+#     data = data.where(coast==0)
     
-    ### Remove shallow sea, less than 100m
-    ### This picks out the Solomon islands and Somoa
-    data = data.where(ds_topo['Height']<-100)
+#     ### Remove shallow sea, less than 100m
+#     ### This picks out the Solomon islands and Somoa
+#     data = data.where(ds_topo['Height']<-100)
     
-    ### remove arctic
-    data = data.where(~((lat>79)))
-    data = data.where(~((lat>67) & (lat<80) & (lon>20) & (lon<180)))
-    data = data.where(~((lat>67) & (lat<80) & (lon>-180+360) & (lon<-100+360)))
+#     ### remove arctic
+#     data = data.where(~((lat>79)))
+#     data = data.where(~((lat>67) & (lat<80) & (lon>20) & (lon<180)))
+#     data = data.where(~((lat>67) & (lat<80) & (lon>-180+360) & (lon<-100+360)))
 
-    ### remove caspian sea, black sea, mediterranean sea, and baltic sea
-    data = data.where(~((lat>24) & (lat<70) & (lon>14) & (lon<70)))
+#     ### remove caspian sea, black sea, mediterranean sea, and baltic sea
+#     data = data.where(~((lat>24) & (lat<70) & (lon>14) & (lon<70)))
     
-    ### remove hudson bay
-    data = data.where(~((lat>50) & (lat<70) & (lon>-100+360) & (lon<-70+360)))
-    data = data.where(~((lat>70) & (lat<80) & (lon>-130+360) & (lon<-80+360)))
+#     ### remove hudson bay
+#     data = data.where(~((lat>50) & (lat<70) & (lon>-100+360) & (lon<-70+360)))
+#     data = data.where(~((lat>70) & (lat<80) & (lon>-130+360) & (lon<-80+360)))
     
-    ### Remove Red sea
-    data = data.where(~((lat>10) & (lat<25) & (lon>10) & (lon<45)))
-    data = data.where(~((lat>20) & (lat<50) & (lon>0) & (lon<20)))
+#     ### Remove Red sea
+#     data = data.where(~((lat>10) & (lat<25) & (lon>10) & (lon<45)))
+#     data = data.where(~((lat>20) & (lat<50) & (lon>0) & (lon<20)))
     
-    return data
+#     return data
