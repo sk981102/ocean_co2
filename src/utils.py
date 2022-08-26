@@ -130,7 +130,7 @@ def read_xarray(dir_name="",num="001",mpi=False,can=False):
 
     u10 = xr.open_dataset(f'{dir_name}/U10_2D_mon_{file_type}{num}_1x1_{date}.nc')
 
-    xco2 = xr.open_dataset(f'../../data/data1/XCO2_1D_mon_CESM001_native_198201-201701.nc')
+    xco2 = xr.open_dataset(f'{dir_name}/XCO2_1D_mon_{file_type}{num}_native_198201-201701.nc')
 
     icefrac = xr.open_dataset(f'{dir_name}/iceFrac_2D_mon_{file_type}{num}_1x1_{date}.nc')
 

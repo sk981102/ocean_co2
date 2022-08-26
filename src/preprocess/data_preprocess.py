@@ -40,7 +40,6 @@ def inverse_scale_frame_socat(arr,df, X_index=[]):
     df_tmp = df[df!=0.0]
     old_max = np.nanmax(df_tmp)
     y_pred = arr*(old_max-old_min)/255+old_min
-    RE
     tmp=np.nan_to_num(df[X_index][1:])
     y_true=np.expand_dims(tmp,axis=4)
     y_pred[y_true==0]=0

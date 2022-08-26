@@ -1,0 +1,327 @@
+{
+  "files": [
+    {
+      "id": 16129505,
+      "name": "CESM001.tar.gz",
+      "size": 620916655,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129505",
+      "supplied_md5": "faaab854bedc4b167dc2d0a5a99ef22c",
+      "computed_md5": "faaab854bedc4b167dc2d0a5a99ef22c"
+    },
+    {
+      "id": 16129943,
+      "name": "CESM023.tar.gz",
+      "size": 620795584,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129943",
+      "supplied_md5": "8eafff8b2cd7116b67683b83fd67e16d",
+      "computed_md5": "8eafff8b2cd7116b67683b83fd67e16d"
+    },
+    {
+      "id": 16130009,
+      "name": "CESM024.tar.gz",
+      "size": 620913096,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130009",
+      "supplied_md5": "8f20f2a21ec8d3194cc7f9ae096bd3a5",
+      "computed_md5": "8f20f2a21ec8d3194cc7f9ae096bd3a5"
+    },
+    {
+      "id": 16130027,
+      "name": "CESM025.tar.gz",
+      "size": 620867298,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130027",
+      "supplied_md5": "e80feb385458e1e1836645ab37058a0c",
+      "computed_md5": "e80feb385458e1e1836645ab37058a0c"
+    },
+    {
+      "id": 16130069,
+      "name": "CESM030.tar.gz",
+      "size": 620867145,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130069",
+      "supplied_md5": "31c4b40630c369dabe08b2465c0955c3",
+      "computed_md5": "31c4b40630c369dabe08b2465c0955c3"
+    },
+    {
+      "id": 16130075,
+      "name": "CESM031.tar.gz",
+      "size": 611236229,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130075",
+      "supplied_md5": "59654e90c4320232db30925468ac59a8",
+      "computed_md5": "59654e90c4320232db30925468ac59a8"
+    },
+    {
+      "id": 16130078,
+      "name": "CESM034.tar.gz",
+      "size": 620922459,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130078",
+      "supplied_md5": "782853b0366516f1d97991bda2e71a17",
+      "computed_md5": "782853b0366516f1d97991bda2e71a17"
+    },
+    {
+      "id": 16130084,
+      "name": "CESM035.tar.gz",
+      "size": 620845674,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130084",
+      "supplied_md5": "bbb3e2418a8e9848b425dd8731612736",
+      "computed_md5": "bbb3e2418a8e9848b425dd8731612736"
+    },
+    {
+      "id": 16130096,
+      "name": "CESM101.tar.gz",
+      "size": 620843392,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130096",
+      "supplied_md5": "be899cecc13c3ce3fcb0683bcf71b86d",
+      "computed_md5": "be899cecc13c3ce3fcb0683bcf71b86d"
+    },
+    {
+      "id": 16130099,
+      "name": "CESM102.tar.gz",
+      "size": 620902345,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130099",
+      "supplied_md5": "827a81d5de5c6e0cde61a5dbae7e0e46",
+      "computed_md5": "827a81d5de5c6e0cde61a5dbae7e0e46"
+    },
+    {
+      "id": 16130105,
+      "name": "CESM103.tar.gz",
+      "size": 620874765,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130105",
+      "supplied_md5": "8286d2b2158edd262bfafd8ab87e4806",
+      "computed_md5": "8286d2b2158edd262bfafd8ab87e4806"
+    },
+    {
+      "id": 16129778,
+      "name": "CESM021.tar.gz",
+      "size": 620980576,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129778",
+      "supplied_md5": "fa004222262275cd00e28e9ed240eb94",
+      "computed_md5": "fa004222262275cd00e28e9ed240eb94"
+    },
+    {
+      "id": 16129748,
+      "name": "CESM020.tar.gz",
+      "size": 620900779,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129748",
+      "supplied_md5": "c90bef0b80fa27aea8e962095ea060b1",
+      "computed_md5": "c90bef0b80fa27aea8e962095ea060b1"
+    },
+    {
+      "id": 16129685,
+      "name": "CESM018.tar.gz",
+      "size": 620826671,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129685",
+      "supplied_md5": "8ff014191699be422e147bc63928e810",
+      "computed_md5": "8ff014191699be422e147bc63928e810"
+    },
+    {
+      "id": 16129508,
+      "name": "CESM002.tar.gz",
+      "size": 620967888,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129508",
+      "supplied_md5": "543672a3a29dddf25c46a748b49174a6",
+      "computed_md5": "543672a3a29dddf25c46a748b49174a6"
+    },
+    {
+      "id": 16129532,
+      "name": "CESM009.tar.gz",
+      "size": 621004811,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129532",
+      "supplied_md5": "54f4a837c2f553cd3efbf0accefb9c11",
+      "computed_md5": "54f4a837c2f553cd3efbf0accefb9c11"
+    },
+    {
+      "id": 16129586,
+      "name": "CESM010.tar.gz",
+      "size": 620891496,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129586",
+      "supplied_md5": "5efa3f2a53c638f965438ebf0c1e486f",
+      "computed_md5": "5efa3f2a53c638f965438ebf0c1e486f"
+    },
+    {
+      "id": 16129610,
+      "name": "CESM011.tar.gz",
+      "size": 620892824,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129610",
+      "supplied_md5": "96d38a88288f19ed079642db61d24fae",
+      "computed_md5": "96d38a88288f19ed079642db61d24fae"
+    },
+    {
+      "id": 16129613,
+      "name": "CESM012.tar.gz",
+      "size": 620840633,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129613",
+      "supplied_md5": "ff1d1b47be73e9585ef45d80d0fab3ea",
+      "computed_md5": "ff1d1b47be73e9585ef45d80d0fab3ea"
+    },
+    {
+      "id": 16129616,
+      "name": "CESM013.tar.gz",
+      "size": 620871788,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129616",
+      "supplied_md5": "b5ae11ae12ad1c9836b4c8f844454d61",
+      "computed_md5": "b5ae11ae12ad1c9836b4c8f844454d61"
+    },
+    {
+      "id": 16129619,
+      "name": "CESM014.tar.gz",
+      "size": 620903510,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129619",
+      "supplied_md5": "9f18a525099e091b615d65fd460bb255",
+      "computed_md5": "9f18a525099e091b615d65fd460bb255"
+    },
+    {
+      "id": 16129622,
+      "name": "CESM015.tar.gz",
+      "size": 620954972,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129622",
+      "supplied_md5": "eb323da526481d5cb476cb6ff4beb544",
+      "computed_md5": "eb323da526481d5cb476cb6ff4beb544"
+    },
+    {
+      "id": 16129625,
+      "name": "CESM016.tar.gz",
+      "size": 620882316,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129625",
+      "supplied_md5": "6d05178eebfb3b35db13051b26e4f805",
+      "computed_md5": "6d05178eebfb3b35db13051b26e4f805"
+    },
+    {
+      "id": 16129643,
+      "name": "CESM017.tar.gz",
+      "size": 620866591,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16129643",
+      "supplied_md5": "f7dcf21f2e3c8e81fd671657dd11ed62",
+      "computed_md5": "f7dcf21f2e3c8e81fd671657dd11ed62"
+    },
+    {
+      "id": 16130108,
+      "name": "CESM104.tar.gz",
+      "size": 620726947,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/16130108",
+      "supplied_md5": "c3bc4f8dd0849e9961ec7879d325245f",
+      "computed_md5": "c3bc4f8dd0849e9961ec7879d325245f"
+    }
+  ],
+  "custom_fields": [],
+  "authors": [
+    {
+      "id": 5686160,
+      "full_name": "Lucas Gloege",
+      "is_active": true,
+      "url_name": "Lucas_Gloege",
+      "orcid_id": "0000-0001-9062-6960"
+    }
+  ],
+  "figshare_url": "https://figshare.com/articles/dataset/CESM_ocean_pCO2_testbed/8798999",
+  "description": "This dataset contains select variables from 25 randomly selected members from the CESM large ensemble (CESM-LENS). Each variable is interpolated from the native grid to a 1x1 degree lat/lon grid. The variables are monthly over the 1982-2017 time frame. Each variable has been sampled as the SOCATv5 data product. RCP8.5 is used after 2005.<div><br></div><div>The intent of this testbed is to evaluate ocean pCO2 gap-filling methods.</div><div><br></div><div><b> Extracting variables</b></div><div><i>>> tar xvzf file.tar.gz</i></div><div><br></div>",
+  "funding": null,
+  "funding_list": [],
+  "version": 1,
+  "status": "public",
+  "size": 15512496444,
+  "created_date": "2019-12-30T16:34:15Z",
+  "modified_date": "2019-12-30T16:34:15Z",
+  "is_public": true,
+  "is_confidential": false,
+  "is_metadata_record": false,
+  "confidential_reason": "",
+  "metadata_reason": "",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "tags": [
+    "Large Ensemble",
+    "CESM-LENS",
+    "CO2",
+    "SOCAT"
+  ],
+  "categories": [
+    {
+      "id": 78,
+      "title": "Atmospheric Sciences",
+      "parent_id": 33,
+      "path": "",
+      "source_id": "",
+      "taxonomy_id": 10
+    },
+    {
+      "id": 266,
+      "title": "Carbon Sequestration Science",
+      "parent_id": 33,
+      "path": "",
+      "source_id": "",
+      "taxonomy_id": 10
+    },
+    {
+      "id": 144,
+      "title": "Climate Science",
+      "parent_id": 33,
+      "path": "",
+      "source_id": "",
+      "taxonomy_id": 10
+    },
+    {
+      "id": 36,
+      "title": "Oceanography",
+      "parent_id": 33,
+      "path": "",
+      "source_id": "",
+      "taxonomy_id": 10
+    }
+  ],
+  "references": [],
+  "has_linked_file": false,
+  "citation": "Gloege, Lucas (2019): CESM ocean pCO2 testbed. figshare. Dataset. https://doi.org/10.6084/m9.figshare.8798999.v1",
+  "is_embargoed": false,
+  "embargo_date": null,
+  "embargo_type": "file",
+  "embargo_title": "",
+  "embargo_reason": "",
+  "embargo_options": [],
+  "id": 8798999,
+  "title": "CESM ocean pCO2 testbed",
+  "doi": "10.6084/m9.figshare.8798999.v1",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/8798999",
+  "published_date": "2019-12-30T16:34:15Z",
+  "thumb": "",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": null,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/8798999",
+  "url_public_api": "https://api.figshare.com/v2/articles/8798999",
+  "url_private_html": "https://figshare.com/account/articles/8798999",
+  "url_public_html": "https://figshare.com/articles/dataset/CESM_ocean_pCO2_testbed/8798999",
+  "timeline": {
+    "posted": "2019-12-30T16:34:15",
+    "firstOnline": "2019-12-30T16:34:15"
+  },
+  "resource_title": null,
+  "resource_doi": null
+}
