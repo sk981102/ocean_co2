@@ -1,15 +1,19 @@
-Ocean pCO2 Prediction with Deep Learning
+Spatiotemporal upscaling of sparse air-sea pCO2 data via physics-informed transfer learning
 ==============================
 
-Author: Shaun (Siyeon) Kim, [sk4973@columbia.edu](mailto:sk4973@columbia.edu)
+__Paper__: TBD (to appear in Scientific Data, Nature Publishing)
 
-## Global Ocean pCO2 modeling for Gentine Lab
+__Authors__ (\*: equal contribution): Shaun (Siyeon) Kim* [sk4973@columbia.edu](mailto:sk4973@columbia.edu), Juan Nathaniel* [jn2808@columbia.edu](mailto:jn2808@columbia.edu), Zhewen Hou, Tian Zheng, Pierre Gentine
 
-This repository contains models that predict pCO2 level of the ocean by incorporating spatial and temporal information with the help of Deep Learning (Image Segmentations + ConvLSTM algorithms). 
+__Dataset__: https://zenodo.org/records/12726686
 
-It also contains traditional machine learning models such as neural network, random forest, and XGboost.  
+__TLDR__: We leverage physics embedded in Earth System Models and sparse observations fine-tuning to derive global, long-term $pCO_2$ product (i.e., physics-informed transfer learning).
 
-## CNN-UNET Pretrained Model
+![Overview](assets/overview_pco2.jpg)
+
+__Abstract__: Global measurements of ocean $pCO_2$ are critical to monitor and understand changes in the global carbon cycle. However, $pCO_2$ observations remain sparse as they are mostly collected on opportunistic ship tracks. Several approaches, especially based on direct learning, have been used to upscale and extrapolate sparse point data to dense estimates using globally available input features. However, these estimates tend to exhibit spatially heterogeneous performance. As a result, we propose a physics-informed transfer learning workflow to generate dense $pCO_2$ estimates that are grounded in real-world measurements and physically consistent. The models are initially trained on dense input predictors against $pCO_2$ estimates from Earth system model simulation, and then fine-tuned to sparse SOCAT observational data. Compared to the benchmark direct learning approach, our transfer learning framework shows major improvements of up to 56-92\%. Furthermore, we demonstrate that using models that explicitly account for spatiotemporal structures in the data yield better validation performances by 50-68\%. Our strategy thus presents a new monthly global $pCO_2$ estimate that spans for 35 years between 1982-2017.
+
+<!-- ## CNN-UNET Pretrained Model
 
 ### PERFORMANCE
 
@@ -45,7 +49,7 @@ It also contains traditional machine learning models such as neural network, ran
 ## Potenial Use Cases of Pretrained Models
 
 1. Used to predict dpCO2 in addition to pCO2 via transfer learning
-2. Used to predict pCO2 in real world SOCAT sampling via transfer learning
+2. Used to predict pCO2 in real world SOCAT sampling via transfer learning -->
 
 Getting Started
 ------------
