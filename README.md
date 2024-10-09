@@ -1,7 +1,7 @@
 Spatiotemporal upscaling of sparse air-sea pCO2 data via physics-informed transfer learning
 ==============================
 
-__Paper__: TBD (to appear in Scientific Data, Nature Publishing)
+__Paper__: https://www.nature.com/articles/s41597-024-03959-w
 
 __Authors__ (\*: equal contribution): Shaun (Siyeon) Kim* [sk4973@columbia.edu](mailto:sk4973@columbia.edu), Juan Nathaniel* [jn2808@columbia.edu](mailto:jn2808@columbia.edu), Zhewen Hou, Tian Zheng, Pierre Gentine
 
